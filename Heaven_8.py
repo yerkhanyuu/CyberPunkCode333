@@ -4,19 +4,22 @@ def run_8():
     print_battery()
     set_heading(0)
 
-    go(730, 40, 70, 40, 150, 1)
-    turn(80, 45, pivot=RIGHT)
-    go(90, 30, 40, 30, 0, 1)
+    go(720, 40, 70, 40, 150, 1)
+    turn(70, 45, pivot=RIGHT)
+    go(100, 30, 40, 30, 0, 1)
 
     righta_dc(100, 90)
-    lefta_dc(100, 150)
-    righta(100, -90, wait=False)
+    lefta_dc(80, 150)
+    righta(100, 60, wait=False)
 
-    go(-200, 30, 60, 30, 0, 1)
-    turn(80, -45)
-    righta(100, 90)
+    go(-220, 40, 50, 40, 0, 1)
+    lefta_dc(70, -160)
 
-    go(-730, 30, 60, 60, 0, 1)
+    turn(80, -90, pivot=RIGHT)
+    go(-200, 40, 70, 60, 0, 1)
+    turn(80, 45, pivot=LEFT)
+    go(-230, 40, 80, 60, 0, 1)
+    turn(80, -90)
 
 if __name__ == "__main__":
     set_heading(0) 

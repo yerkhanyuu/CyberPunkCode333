@@ -14,7 +14,6 @@ from pybricks.tools import wait, StopWatch
 from config import ATT_SPEED_SCALE
 from robot import left_att_motor, right_att_motor
 
-
 def _calc_speed(power):
     """Переводит мощность (1..100) в скорость (град/с), всегда положительную."""
     p = max(1, min(100, abs(power)))

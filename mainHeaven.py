@@ -137,8 +137,8 @@ VICTORY_MELODY = ["C5/8", "E5/8", "G5/8", "C6/4"]
 def play_finish_melody():
     """Проигрывает короткую победную мелодию после успешного финиша заезда."""
     try:
-        hub.speaker.volume(80)
-        hub.speaker.play_notes(VICTORY_MELODY, tempo=180)
+        hub.speaker.volume(25)
+        hub.speaker.play_notes(VICTORY_MELODY, tempo=500)
     except Exception:
         pass
 
@@ -149,17 +149,9 @@ def play_finish_melody():
 def run_menu():
     """Соревновательное меню выбора 9 заездов на хабе SPIKE Prime."""
     total_runs = len(RUNS)
-    max_index = total_runs - 1
 
-    # Восстанавливаем последний выбранный заезд из памяти хаба (NVRAM)
-    try:
-        saved = hub.system.storage(0, 1)
-        if saved and saved[0] <= max_index:
-            current_index = saved[0]
-        else:
-            current_index = 0
-    except Exception:
-        current_index = 0
+    # Всегда стартуем с 1-го заезда (индекс 0) при включении программы
+    current_index = 0
 
     print("=== HEAVEN MENU READY ===")
     print_battery()
@@ -212,6 +204,13 @@ def run_menu():
                 hub.display.icon(ICON_OK)
                 play_finish_melody()
                 wait(150)
+
+                # Автопереход на следующий заезд после успешного финиша (1 -> 2 -> ... -> 9 -> 1)
+                current_index = (current_index + 1) % total_runs
+                try:
+                    hub.system.storage(0, bytes([current_index]))
+                except Exception:
+                    pass
             except Exception as e:
                 stop_all()
                 print("ОШИБКА В ЗАЕЗДЕ №{}: {}".format(current_index + 1, e))

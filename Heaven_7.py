@@ -4,18 +4,14 @@ def run_7():
     print_battery()
     set_heading(0)
 
-    righta(50, 180, wait=False)
-    go(580, 30, 60, 30, 100, 1)
-
-    go(-110, 30, 60, 30, 0, 1)
-    righta(50, -110)
-
-    go(25, 30, 30, 30, 0, 1)
-    righta(40, 120)
-    go(-160, 30, 30, 30, 50, 1)
-    righta(50, -130)
-    go(-100, 30, 30, 30, 0, 1)
-    go(-200, 50, 80, 50, 50, 1)
+    righta(50, 56, wait=False)
+    go(525, 40, 60, 40, 0, 1)
+    lefta(30, 300)
+    righta(30, 40)
+    righta(30, 20, wait=False)
+    go(-145, 30, 40, 30, 0, 1)
+    righta(30, -60)
+    go(-320, 40, 60, 40, 0, 1)
 
 if __name__ == "__main__":
     set_heading(0)  

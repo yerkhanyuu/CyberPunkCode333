@@ -24,9 +24,9 @@ TEST_PIVOT_MIN_POWER = PIVOT_MIN_POWER
 TEST_PIVOT_TOL = PIVOT_TOLERANCE
 
 # Параметры тестовых поворотов
-TEST_POWER = 80                     # Максимальная мощность теста
+TEST_POWER = 70                     # Максимальная мощность теста
 TEST_ANGLES = [90, -90, 180]        # Серия углов для танкового поворота (+ вправо, - влево)
-TEST_PIVOT = False                  # Поставь True, чтобы дополнительно протестировать pivot
+TEST_PIVOT = True                  # Поставь True, чтобы дополнительно протестировать pivot
 
 
 def turn_lqr_debug(
